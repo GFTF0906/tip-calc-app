@@ -1,0 +1,279 @@
+// IMPORTS
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+// VARIABLES
+$strong-cyan: hsl(172, 67%, 45%);
+
+$very-dark-cyan: hsl(183, 100%, 15%);
+$dark-grayish-cyan: hsl(186, 14%, 43%);
+$grayish-cyan: hsl(184, 14%, 56%);
+$light-grayish-cyan: hsl(185, 41%, 84%);
+$very-light-grayish-cyan: hsl(189, 41%, 97%);
+$white: hsl(0, 0%, 100%);
+$error-color: hsl(0, 100%, 50%);
+
+$border-radius: 1rem;
+
+// MIXINS
+@mixin align-flex($justifyPos: center, $alignPos: center, $dir: column, $wrap: wrap, $gap: 0) {
+  display: flex;
+  justify-content: $justifyPos;
+  align-items: $alignPos;
+  flex-flow: $dir $wrap;
+  gap: $gap;
+}
+
+@mixin align-grid($rows: 0, $cols: 2, $row-gap: 0, $col-gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+  column-gap: $col-gap;
+  row-gap: $row-gap;
+  place-content: center;
+}
+
+// RESET
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  border: none;
+  outline: none;
+
+  &, &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+// GENERAL STYLES
+body {
+  @include align-flex($gap: 2rem);
+
+  min-height: 100vh;
+
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+
+  background: $light-grayish-cyan;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a, a:any-link {
+  color: $strong-cyan;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    text-decoration: underline;
+    color: darken($strong-cyan, 10);
+  }
+}
+
+// UTILITY CLASSES
+.hidden {
+  display: none
+}
+
+// CLASSES STYLES
+.main {
+  @include align-flex($gap: 2.5rem);
+
+  & > .logo {
+    width: 9%;
+  }
+}
+
+.tip__calc {
+  @include align-grid($col-gap: 3rem);
+  max-width: min-content;
+
+  padding: 2em;
+  border-radius: $border-radius;
+  background: $white;
+
+  & > .first__section {
+    @include align-flex;
+  }
+
+  & > .second__section {
+    padding: 2rem;
+    width: 22rem;
+    border-radius: $border-radius;
+    background: $very-dark-cyan;
+
+    & > .in__wrapper {
+      @include align-grid($col-gap: 5rem);
+    }
+  }
+}
+
+.form  {
+  @include align-flex($alignPos: flex-start, $gap: 1.5rem);
+
+  & > .input__section {
+    @include align-flex($alignPos: flex-start);
+    position: relative; 
+
+    & > .inputs {
+      color: $very-dark-cyan;
+      border-radius: 0.5rem;
+      text-align: right;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      width: 100%;
+      font-size: 1.5rem;
+      background: $very-light-grayish-cyan;
+
+      &:active, &:focus {
+        outline: 0.1rem solid $strong-cyan;
+      }
+
+      &::placeholder {
+        color: $very-dark-cyan;
+      }
+    }
+
+    & > .icons {
+      position: absolute;
+      top: 56%;
+      left: 5%;
+      width: 4%;
+    }
+
+    &:has(.error) > input {
+      outline: 0.1rem solid $error-color;
+    }
+
+    &:not(:has(.error)) > input {
+      outline: 0.1rem solid $strong-cyan;
+    }
+  }
+
+  .form__label {
+    font-size: 0.1rem;
+    color: $very-dark-cyan;
+  }
+
+  .texts {
+    @include align-grid($cols: 2, $col-gap: 2rem);
+  }
+
+  .error {
+    color: $error-color;
+  }
+  
+  & > .tips > .tips__inputs {
+    @include align-grid($rows: 2, $cols: 3, $row-gap: 1rem, $col-gap: 0.5rem);
+    margin-top: 0.5rem;
+    
+    & > .tip__inp {
+      width: 100%;
+      padding: 0.5rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 0.2rem;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      color: $white;
+      background: $very-dark-cyan;
+
+      &:hover, &:active, &:focus {
+        color: $very-dark-cyan;
+        background: lighten($strong-cyan, 30);
+      }
+    }
+
+    .active {
+      color: $very-dark-cyan;
+      background: $strong-cyan;
+    }
+
+    & > #customInp {
+      padding: 0.5rem;
+      text-align: right;
+      cursor: auto;
+      color: $very-dark-cyan;
+      background: $very-light-grayish-cyan;
+
+      &::placeholder {
+        text-align: center;
+      }
+
+      &:active, &:focus {
+        outline: 0.1rem solid $strong-cyan;
+      }
+    }
+  }
+}
+
+.second__section {
+  & > .btn__reset {
+    width: 100%;
+    padding: 0.5rem 5rem;
+    margin-top: 8rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: $very-dark-cyan;
+    background: $strong-cyan;
+
+    &:hover, &:active, &:focus {
+      background: lighten($strong-cyan, 30);
+    }
+  }
+}
+
+.in__wrapper {
+  & > .ss__headers {
+    color: $white;
+    font-size: 0.1rem;
+    margin-bottom: 1rem;
+
+    & > .person__title {
+      color: $grayish-cyan;
+    }    
+  }
+
+  & > h3 {
+    color: $strong-cyan;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 420px) {
+  .main {
+    @include align-flex($gap: 0.5rem);
+
+    & > .logo {
+      width: 20%;
+      margin: 2rem;
+    }
+  }
+
+  .form > .tips > .tips__inputs {
+    @include align-grid($rows: 3, $cols: 2, $row-gap: 1rem, $col-gap: 0.5rem);
+  }
+
+  .tip__calc {
+    display: block;
+    font-size: 0.3rem;
+    padding: 6em 2em;
+  }
+
+  .second__section {
+    margin-top: 1rem;
+
+    & > .btn__reset {
+      margin-top: 1rem;
+    }
+  }
+
+  .footer {
+    font-size: 0.5rem;
+    margin: 2rem;
+  }
+
+}

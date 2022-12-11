@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  border: none;
+  outline: none;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 2rem;
+  min-height: 100vh;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  background: hsl(185deg, 41%, 84%);
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a:-webkit-any-link {
+  color: hsl(172deg, 67%, 45%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+a:-moz-any-link {
+  color: hsl(172deg, 67%, 45%);
+  -moz-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+a, a:any-link {
+  color: hsl(172deg, 67%, 45%);
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+a:-webkit-any-link:hover, a:-webkit-any-link:active, a:-webkit-any-link:focus {
+  text-decoration: underline;
+  color: #1d9585;
+}
+a:-moz-any-link:hover, a:-moz-any-link:active, a:-moz-any-link:focus {
+  text-decoration: underline;
+  color: #1d9585;
+}
+a:hover, a:active, a:focus, a:any-link:hover, a:any-link:active, a:any-link:focus {
+  text-decoration: underline;
+  color: #1d9585;
+}
+
+.hidden {
+  display: none;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 2.5rem;
+}
+.main > .logo {
+  width: 9%;
+}
+
+.tip__calc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(0, 1fr);
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  row-gap: 0;
+  place-content: center;
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+  padding: 2em;
+  border-radius: 1rem;
+  background: hsl(0deg, 0%, 100%);
+}
+.tip__calc > .first__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 0;
+}
+.tip__calc > .second__section {
+  padding: 2rem;
+  width: 22rem;
+  border-radius: 1rem;
+  background: hsl(183deg, 100%, 15%);
+}
+.tip__calc > .second__section > .in__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(0, 1fr);
+  -moz-column-gap: 5rem;
+       column-gap: 5rem;
+  row-gap: 0;
+  place-content: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
+  gap: 1.5rem;
+}
+.form > .input__section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
+  gap: 0;
+  position: relative;
+}
+.form > .input__section > .inputs {
+  color: hsl(183deg, 100%, 15%);
+  border-radius: 0.5rem;
+  text-align: right;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 1.5rem;
+  background: hsl(189deg, 41%, 97%);
+}
+.form > .input__section > .inputs:active, .form > .input__section > .inputs:focus {
+  outline: 0.1rem solid hsl(172deg, 67%, 45%);
+}
+.form > .input__section > .inputs::-moz-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+.form > .input__section > .inputs:-ms-input-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+.form > .input__section > .inputs::placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+.form > .input__section > .icons {
+  position: absolute;
+  top: 56%;
+  left: 5%;
+  width: 4%;
+}
+.form > .input__section:has(.error) > input {
+  outline: 0.1rem solid hsl(0deg, 100%, 50%);
+}
+.form > .input__section:not(:has(.error)) > input {
+  outline: 0.1rem solid hsl(172deg, 67%, 45%);
+}
+.form .form__label {
+  font-size: 0.1rem;
+  color: hsl(183deg, 100%, 15%);
+}
+.form .texts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(0, 1fr);
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  row-gap: 0;
+  place-content: center;
+}
+.form .error {
+  color: hsl(0deg, 100%, 50%);
+}
+.form > .tips > .tips__inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  row-gap: 1rem;
+  place-content: center;
+  margin-top: 0.5rem;
+}
+.form > .tips > .tips__inputs > .tip__inp {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  color: hsl(0deg, 0%, 100%);
+  background: hsl(183deg, 100%, 15%);
+}
+.form > .tips > .tips__inputs > .tip__inp:hover, .form > .tips > .tips__inputs > .tip__inp:active, .form > .tips > .tips__inputs > .tip__inp:focus {
+  color: hsl(183deg, 100%, 15%);
+  background: #95eadf;
+}
+.form > .tips > .tips__inputs .active {
+  color: hsl(183deg, 100%, 15%);
+  background: hsl(172deg, 67%, 45%);
+}
+.form > .tips > .tips__inputs > #customInp {
+  padding: 0.5rem;
+  text-align: right;
+  cursor: auto;
+  color: hsl(183deg, 100%, 15%);
+  background: hsl(189deg, 41%, 97%);
+}
+.form > .tips > .tips__inputs > #customInp::-moz-placeholder {
+  text-align: center;
+}
+.form > .tips > .tips__inputs > #customInp:-ms-input-placeholder {
+  text-align: center;
+}
+.form > .tips > .tips__inputs > #customInp::placeholder {
+  text-align: center;
+}
+.form > .tips > .tips__inputs > #customInp:active, .form > .tips > .tips__inputs > #customInp:focus {
+  outline: 0.1rem solid hsl(172deg, 67%, 45%);
+}
+
+.second__section > .btn__reset {
+  width: 100%;
+  padding: 0.5rem 5rem;
+  margin-top: 8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: hsl(183deg, 100%, 15%);
+  background: hsl(172deg, 67%, 45%);
+}
+.second__section > .btn__reset:hover, .second__section > .btn__reset:active, .second__section > .btn__reset:focus {
+  background: #95eadf;
+}
+
+.in__wrapper > .ss__headers {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 0.1rem;
+  margin-bottom: 1rem;
+}
+.in__wrapper > .ss__headers > .person__title {
+  color: hsl(184deg, 14%, 56%);
+}
+.in__wrapper > h3 {
+  color: hsl(172deg, 67%, 45%);
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 375px) and (max-width: 420px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 0.5rem;
+  }
+  .main > .logo {
+    width: 20%;
+    margin: 2rem;
+  }
+  .form > .tips > .tips__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    -moz-column-gap: 0.5rem;
+         column-gap: 0.5rem;
+    row-gap: 1rem;
+    place-content: center;
+  }
+  .tip__calc {
+    display: block;
+    font-size: 0.3rem;
+    padding: 6em 2em;
+  }
+  .second__section {
+    margin-top: 1rem;
+  }
+  .second__section > .btn__reset {
+    margin-top: 1rem;
+  }
+  .footer {
+    font-size: 0.5rem;
+    margin: 2rem;
+  }
+}/*# sourceMappingURL=main.css.map */
